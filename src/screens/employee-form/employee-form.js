@@ -1,5 +1,6 @@
 import {LitElement, html} from 'lit';
 import {employeeFormStyles} from './employee-form.css.js';
+import {employeeData} from '../../mockDataEmployee.js';
 
 export class EmployeeForm extends LitElement {
   static properties = {
@@ -22,6 +23,29 @@ export class EmployeeForm extends LitElement {
       position: '',
     };
     this.mode = 'new';
+  }
+
+  onBeforeEnter(location) {
+    const id = location.params.id;
+    if (id) {
+      const found = employeeData.find((emp) => String(emp.id) === String(id));
+      if (found) {
+        this.employee = {...found};
+        this.mode = 'edit';
+      }
+    } else {
+      this.employee = {
+        firstName: '',
+        lastName: '',
+        dateOfEmployment: '',
+        dateOfBirth: '',
+        phone: '',
+        email: '',
+        department: '',
+        position: '',
+      };
+      this.mode = 'new';
+    }
   }
 
   handleInput(e) {
@@ -50,7 +74,7 @@ export class EmployeeForm extends LitElement {
     return html`
       <div class="outer-container">
         <div class="header-container">
-          <p>Add Employee</p>
+          <p>${this.mode === 'edit' ? 'Edit Employee' : 'Add Employee'}</p>
         </div>
         <form class="form-container" @submit=${this.handleSubmit}>
           <div class="form-group">
@@ -112,12 +136,17 @@ export class EmployeeForm extends LitElement {
           </div>
           <div class="form-group">
             <label>Department</label>
-            <input
+
+            <select
               name="department"
               .value=${this.employee.department}
-              @input=${this.handleInput}
+              @change=${this.handleInput}
               required
-            />
+            >
+              <option value="">Please Select</option>
+              <option value="Analytics">Analytics</option>
+              <option value="Tech">Tech</option>
+            </select>
           </div>
           <div class="form-group">
             <label>Position</label>

@@ -8,7 +8,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 01',
     email: 'user1@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 02',
     email: 'user2@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 03',
     email: 'user3@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 04',
     email: 'user4@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 05',
     email: 'user5@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 06',
     email: 'user6@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 07',
     email: 'user7@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 08',
     email: 'user8@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 09',
     email: 'user9@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 10',
     email: 'user10@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 11,
@@ -118,7 +118,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 11',
     email: 'user11@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 12,
@@ -129,7 +129,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 12',
     email: 'user12@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 13,
@@ -140,7 +140,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 13',
     email: 'user13@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 14,
@@ -151,7 +151,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 14',
     email: 'user14@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 15,
@@ -162,7 +162,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 15',
     email: 'user15@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 16,
@@ -173,7 +173,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 16',
     email: 'user16@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 17,
@@ -184,7 +184,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 17',
     email: 'user17@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 18,
@@ -195,7 +195,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 18',
     email: 'user18@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 19,
@@ -206,7 +206,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 19',
     email: 'user19@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 20,
@@ -217,7 +217,7 @@ export const employeeData = [
     phone: '+(90) 532 100 00 20',
     email: 'user20@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 21,
@@ -228,7 +228,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 21',
     email: 'ayse.dogan@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 22,
@@ -239,7 +239,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 22',
     email: 'kemal.ersoy@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 23,
@@ -250,7 +250,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 23',
     email: 'fatma.kurt@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 24,
@@ -261,7 +261,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 24',
     email: 'can.yildiz@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 25,
@@ -272,7 +272,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 25',
     email: 'merve.sahin@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 26,
@@ -283,7 +283,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 26',
     email: 'onur.cetin@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 27,
@@ -294,7 +294,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 27',
     email: 'selin.aksoy@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 28,
@@ -305,7 +305,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 28',
     email: 'tuna.kara@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 29,
@@ -316,7 +316,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 29',
     email: 'ece.polat@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 30,
@@ -327,7 +327,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 30',
     email: 'umut.turkmen@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 31,
@@ -338,7 +338,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 31',
     email: 'melis.bayraktar@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 32,
@@ -349,7 +349,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 32',
     email: 'emre.koc@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 33,
@@ -360,7 +360,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 33',
     email: 'yasemin.erturk@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 34,
@@ -371,7 +371,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 34',
     email: 'baran.ozdemir@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 35,
@@ -382,7 +382,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 35',
     email: 'asli.altun@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 36,
@@ -393,7 +393,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 36',
     email: 'halil.bas@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 37,
@@ -404,7 +404,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 37',
     email: 'simay.gur@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 38,
@@ -415,7 +415,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 38',
     email: 'yusuf.isik@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 39,
@@ -426,7 +426,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 39',
     email: 'duygu.kose@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 40,
@@ -437,7 +437,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 40',
     email: 'serkan.aydin@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 41,
@@ -448,7 +448,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 41',
     email: 'necla.bozkurt@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 42,
@@ -459,7 +459,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 42',
     email: 'alp.cakir@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 43,
@@ -470,7 +470,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 43',
     email: 'sena.durmaz@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 44,
@@ -481,7 +481,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 44',
     email: 'furkan.ergin@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 45,
@@ -492,7 +492,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 45',
     email: 'gizem.akkaya@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 46,
@@ -503,7 +503,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 46',
     email: 'okan.sezer@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 47,
@@ -514,7 +514,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 47',
     email: 'pelin.yuce@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 48,
@@ -525,7 +525,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 48',
     email: 'levent.basaran@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 49,
@@ -536,7 +536,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 49',
     email: 'irem.sari@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 50,
@@ -547,7 +547,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 50',
     email: 'harun.yildirim@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 51,
@@ -558,7 +558,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 51',
     email: 'dilan.kosar@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 52,
@@ -569,7 +569,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 52',
     email: 'taner.gurel@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 53,
@@ -580,7 +580,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 53',
     email: 'sevgi.turkmen@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 54,
@@ -591,7 +591,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 54',
     email: 'berk.kocyigit@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 55,
@@ -602,7 +602,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 55',
     email: 'hulya.caliskan@example.com',
     department: 'Analytics',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 56,
@@ -613,7 +613,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 56',
     email: 'taylan.yavuz@example.com',
     department: 'Tech',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 57,
@@ -624,7 +624,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 57',
     email: 'buse.aydin@example.com',
     department: 'Analytics',
-    positon: 'Senior',
+    position: 'Senior',
   },
   {
     id: 58,
@@ -635,7 +635,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 58',
     email: 'cem.ozer@example.com',
     department: 'Tech',
-    positon: 'Junior',
+    position: 'Junior',
   },
   {
     id: 59,
@@ -646,7 +646,7 @@ export const employeeData = [
     phone: '+(90) 532 111 00 59',
     email: 'nur.ucar@example.com',
     department: 'Analytics',
-    positon: 'Medior',
+    position: 'Medior',
   },
   {
     id: 60,
@@ -657,6 +657,6 @@ export const employeeData = [
     phone: '+(90) 532 111 00 60',
     email: 'tolga.kir@example.com',
     department: 'Tech',
-    positon: 'Senior',
+    position: 'Senior',
   },
 ];

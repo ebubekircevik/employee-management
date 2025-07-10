@@ -1,6 +1,7 @@
 import {LitElement, html} from 'lit';
 import {listAppStyles} from './list-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
+import {Router} from '@vaadin/router';
 
 export class ListApp extends LitElement {
   static styles = [listAppStyles];
@@ -153,12 +154,9 @@ export class ListApp extends LitElement {
   }
 
   editRow(row) {
-    // Düzenleme işlemi burada yapılacak
-    console.log('Edit:', row);
+    Router.go(`/edit/${row.id}`);
   }
-
   deleteRow(row) {
-    // Silme işlemi burada yapılacak
     console.log('Delete:', row);
   }
 }
