@@ -1,6 +1,7 @@
 import {LitElement, html} from 'lit';
 import {gridAppStyles} from './grid-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
+import '../../_shared/employee-card/employee-card.js';
 
 export class GridApp extends LitElement {
   static styles = [gridAppStyles];
@@ -8,7 +9,7 @@ export class GridApp extends LitElement {
     rowData: {type: Array},
     headers: {type: Array},
     rowsPerPage: {type: Number},
-    viewType: {type: String}, // 'table' veya 'list'
+    viewType: {type: String}, 
     search: {type: String},
     page: {type: Number},
     selectedRows: {type: Array},
@@ -73,73 +74,18 @@ export class GridApp extends LitElement {
 
   render() {
     console.log(this.selectedRows);
-    return html`grid
+    return html`
       <div>
-        <div class="list-container">
-          <table>
-            <thead>
-              <tr>
-                <td>
-                  <input
-                    type="checkbox"
-                    .checked=${this.allSelected}
-                    @change=${this.toggleSelectAll}
-                  />
-                </td>
-                ${this.headers.map((header) => html`<td>${header}</td>`)}
-                <td>Actions</td>
-              </tr>
-            </thead>
-            <tbody>
-              ${this.getCurrentPageRows().map(
-                (row) => html`<tr>
-                  <td>
-                    <input
-                      type="checkbox"
-                      .checked=${this.selectedRows.includes(row.id)}
-                      @change=${(e) => this.toggleRowSelect(e, row)}
-                    />
-                  </td>
-                  <td>${row.firstName}</td>
-                  <td>${row.lastName}</td>
-                  <td>${row.dateOfEmployment}</td>
-                  <td>${row.dateOfBirth}</td>
-                  <td>${row.phone}</td>
-                  <td>${row.email}</td>
-                  <td>${row.department}</td>
-                  <td>${row.positon}</td>
-                  <td>
-                    <button
-                      title="Edit"
-                      @click=${() => this.editRow(row)}
-                      class="icon"
-                    >
-                      <img
-                        src="/src/_assets/icons/edit_square.svg"
-                        alt="Edit"
-                        width="24"
-                        height="24"
-                        style="vertical-align:middle;"
-                      />
-                    </button>
-                    <button
-                      title="Delete"
-                      @click=${() => this.deleteRow(row)}
-                      class="icon"
-                    >
-                      <img
-                        src="/src/_assets/icons/delete.svg"
-                        alt="Delete"
-                        width="24"
-                        height="24"
-                        style="vertical-align:middle;"
-                      />
-                    </button>
-                  </td>
-                </tr>`
-              )}
-            </tbody>
-          </table>
+        <div class="grid-container">
+          ${this.getCurrentPageRows().map(
+            (row) => html`
+              <employee-card
+                .row=${row}
+                @edit=${(e) => this.editRow(e.detail)}
+                @delete=${(e) => this.deleteRow(e.detail)}
+              ></employee-card>
+            `
+          )}
         </div>
         <simple-pagination
           style="margin-top: 1rem;"
@@ -147,7 +93,8 @@ export class GridApp extends LitElement {
           .totalPages=${Math.ceil(this.rowData.length / this.rowsPerPage)}
           @page-change=${this.onPageChange}
         ></simple-pagination>
-      </div> `;
+      </div>
+    `;
   }
 
   editRow(row) {

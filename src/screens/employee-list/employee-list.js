@@ -23,7 +23,7 @@ export class EmployeeList extends LitElement {
     // this.headers = [];
     // this.search = '';
     // this.page = 1;
-    this.isListView = true;
+    this.isListView = false;
   }
 
   render() {
