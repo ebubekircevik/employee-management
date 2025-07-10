@@ -11,6 +11,14 @@ export const employeeListStyles = css`
   .header-container {
     margin: 2rem 0;
     color: #ff6101;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .view-toggle-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
   }
   .header-container > p {
     font-size: 1.5rem;
