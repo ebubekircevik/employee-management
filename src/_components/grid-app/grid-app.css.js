@@ -1,6 +1,6 @@
 import {css} from 'lit';
 
-export const listAppStyles = css`
+export const gridAppStyles = css`
   :host {
     display: block;
     /* padding: 1rem; */

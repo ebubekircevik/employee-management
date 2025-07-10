@@ -1,9 +1,9 @@
 import {LitElement, html} from 'lit';
-import {listAppStyles} from './list-app.css.js';
+import {gridAppStyles} from './grid-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 
-export class ListApp extends LitElement {
-  static styles = [listAppStyles];
+export class GridApp extends LitElement {
+  static styles = [gridAppStyles];
   static properties = {
     rowData: {type: Array},
     headers: {type: Array},
@@ -19,7 +19,7 @@ export class ListApp extends LitElement {
     super();
     this.rowData = [];
     this.headers = [];
-    this.rowsPerPage = 5;
+    this.rowsPerPage = 4;
     this.viewType = 'table';
     this.search = '';
     this.page = 1;
@@ -73,7 +73,7 @@ export class ListApp extends LitElement {
 
   render() {
     console.log(this.selectedRows);
-    return html`
+    return html`grid
       <div>
         <div class="list-container">
           <table>
@@ -141,15 +141,13 @@ export class ListApp extends LitElement {
             </tbody>
           </table>
         </div>
-        <hr style="border: 1px solid #f1ebeb;" />
         <simple-pagination
           style="margin-top: 1rem;"
           .page=${this.page}
           .totalPages=${Math.ceil(this.rowData.length / this.rowsPerPage)}
           @page-change=${this.onPageChange}
         ></simple-pagination>
-      </div>
-    `;
+      </div> `;
   }
 
   editRow(row) {
@@ -163,4 +161,4 @@ export class ListApp extends LitElement {
   }
 }
 
-customElements.define('list-app', ListApp);
+customElements.define('grid-app', GridApp);

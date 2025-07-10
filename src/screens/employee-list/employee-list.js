@@ -1,6 +1,7 @@
 import {LitElement, html} from 'lit';
 import {employeeListStyles} from './employee-list.css.js';
 import '../../_components/list-app/list-app.js';
+import '../../_components/grid-app/grid-app.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import {employeeData} from '../../mockDataEmployee.js';
 import {getObjectKeys} from '../../helperFunctions.js';
@@ -54,7 +55,10 @@ export class EmployeeList extends LitElement {
               .rowData=${employeeData}
               .headers=${getObjectKeys(employeeData[0])}
             ></list-app>`
-          : html`<div>test</div>`}
+          : html`<grid-app
+              .rowData=${employeeData}
+              .headers=${getObjectKeys(employeeData[0])}
+            ></grid-app>`}
       </div>
     `;
   }
