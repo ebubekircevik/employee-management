@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit';
 import {employeeListStyles} from './employee-list.css.js';
-import '../../shared/simple-pagination/simple-pagination.js';
+import '../../_shared/simple-pagination/simple-pagination.js';
 
 export class EmployeeList extends LitElement {
   static styles = [employeeListStyles];
@@ -97,7 +97,7 @@ export class EmployeeList extends LitElement {
                       class="icon"
                     >
                       <img
-                        src="/src/assets/icons/edit_square.svg"
+                        src="/src/_assets/icons/edit_square.svg"
                         alt="Edit"
                         width="24"
                         height="24"
@@ -110,7 +110,7 @@ export class EmployeeList extends LitElement {
                       class="icon"
                     >
                       <img
-                        src="/src/assets/icons/delete.svg"
+                        src="/src/_assets/icons/delete.svg"
                         alt="Delete"
                         width="24"
                         height="24"

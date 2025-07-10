@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit';
 import {listAppStyles} from './list-app.css.js';
-import '../../shared/simple-pagination/simple-pagination.js';
+import '../../_shared/simple-pagination/simple-pagination.js';
 
 export class ListApp extends LitElement {
   static styles = [listAppStyles];
@@ -97,7 +97,7 @@ export class ListApp extends LitElement {
                       class="icon"
                     >
                       <img
-                        src="/src/assets/icons/edit_square.svg"
+                        src="/src/_assets/icons/edit_square.svg"
                         alt="Edit"
                         width="24"
                         height="24"
@@ -110,7 +110,7 @@ export class ListApp extends LitElement {
                       class="icon"
                     >
                       <img
-                        src="/src/assets/icons/delete.svg"
+                        src="/src/_assets/icons/delete.svg"
                         alt="Delete"
                         width="24"
                         height="24"
