@@ -16,30 +16,4 @@ export const employeeListStyles = css`
     font-size: 1.5rem;
     margin: 0;
   }
-  .list-container {
-    overflow: scroll;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
-    margin-bottom: 2rem;
-  }
-  table th,
-  table td {
-    padding: 1rem;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    white-space: nowrap;
-    text-align: center;
-  }
-  table thead {
-    color: #ff6101;
-  }
-  .icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.2rem 0.5rem;
-  }
 `;

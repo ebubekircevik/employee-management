@@ -3,18 +3,7 @@ import {css} from 'lit';
 export const listAppStyles = css`
   :host {
     display: block;
-    padding: 1rem;
-  }
-  .employee-list-container {
-    border: 1px solid red;
-  }
-  .header-container {
-    margin: 2rem 0;
-    color: #ff6101;
-  }
-  .header-container > p {
-    font-size: 1.5rem;
-    margin: 0;
+    /* padding: 1rem; */
   }
   .list-container {
     overflow: scroll;

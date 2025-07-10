@@ -46,17 +46,12 @@ export class ListApp extends LitElement {
 
   onPageChange(e) {
     this.page = e.detail.page;
-    // Burada sayfa değişiminde veri güncelleyebilirsin
-    // Örneğin: this.fetchPageData(this.page);
   }
 
   render() {
     console.log(this.selectedRows);
     return html`
-      <div class="employee-list-container">
-        <div class="header-container">
-          <p>Employee List</p>
-        </div>
+      <div>
         <div class="list-container">
           <table>
             <thead>
@@ -122,12 +117,12 @@ export class ListApp extends LitElement {
               )}
             </tbody>
           </table>
-          <simple-pagination
-            .page=${this.page}
-            .totalPages=${20}
-            @page-change=${this.onPageChange}
-          ></simple-pagination>
         </div>
+        <simple-pagination
+          .page=${this.page}
+          .totalPages=${20}
+          @page-change=${this.onPageChange}
+        ></simple-pagination>
       </div>
     `;
   }
