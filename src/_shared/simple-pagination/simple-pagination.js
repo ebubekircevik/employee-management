@@ -31,45 +31,55 @@ export class SimplePagination extends LitElement {
   getPageList(page, totalPages, maxLength = 7) {
     if (maxLength < 5) throw new Error('maxLength must be at least 5');
     if (totalPages <= maxLength) {
-      return Array.from({length: totalPages}, (_, i) => i + 1);
+      const arr = [];
+      for (let i = 1; i <= totalPages; i++) {
+        arr.push(i);
+      }
+      return arr;
     }
     const sideWidth = maxLength < 9 ? 1 : 2;
     const leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
     const rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
 
     if (page <= maxLength - sideWidth - 1 - rightWidth) {
-      return [
-        ...Array.from({length: maxLength - sideWidth - 1}, (_, i) => i + 1),
-        '...',
-        ...Array.from(
-          {length: sideWidth},
-          (_, i) => totalPages - sideWidth + 1 + i
-        ),
-      ];
+      const arr = [];
+      for (let i = 1; i <= maxLength - sideWidth - 1; i++) {
+        arr.push(i);
+      }
+      arr.push('...');
+      for (let i = totalPages - sideWidth + 1; i <= totalPages; i++) {
+        arr.push(i);
+      }
+      return arr;
     }
     if (page >= totalPages - sideWidth - 1 - leftWidth) {
-      return [
-        ...Array.from({length: sideWidth}, (_, i) => i + 1),
-        '...',
-        ...Array.from(
-          {length: maxLength - sideWidth - 1},
-          (_, i) => totalPages - (maxLength - sideWidth - 2) + i
-        ),
-      ];
+      const arr = [];
+      for (let i = 1; i <= sideWidth; i++) {
+        arr.push(i);
+      }
+      arr.push('...');
+      for (
+        let i = totalPages - (maxLength - sideWidth - 2);
+        i <= totalPages;
+        i++
+      ) {
+        arr.push(i);
+      }
+      return arr;
     }
-    return [
-      ...Array.from({length: sideWidth}, (_, i) => i + 1),
-      '...',
-      ...Array.from(
-        {length: leftWidth + rightWidth + 1},
-        (_, i) => page - leftWidth + i
-      ),
-      '...',
-      ...Array.from(
-        {length: sideWidth},
-        (_, i) => totalPages - sideWidth + 1 + i
-      ),
-    ];
+    const arr = [];
+    for (let i = 1; i <= sideWidth; i++) {
+      arr.push(i);
+    }
+    arr.push('...');
+    for (let i = page - leftWidth; i <= page + rightWidth; i++) {
+      arr.push(i);
+    }
+    arr.push('...');
+    for (let i = totalPages - sideWidth + 1; i <= totalPages; i++) {
+      arr.push(i);
+    }
+    return arr;
   }
 
   render() {

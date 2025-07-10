@@ -7,6 +7,7 @@ export class ListApp extends LitElement {
   static properties = {
     rowData: {type: Array},
     headers: {type: Array},
+    rowsPerPage: {type: Number},
     viewType: {type: String}, // 'table' veya 'list'
     search: {type: String},
     page: {type: Number},
@@ -18,6 +19,7 @@ export class ListApp extends LitElement {
     super();
     this.rowData = [];
     this.headers = [];
+    this.rowsPerPage = 5;
     this.viewType = 'table';
     this.search = '';
     this.page = 1;
@@ -27,12 +29,25 @@ export class ListApp extends LitElement {
 
   toggleSelectAll(e) {
     const checked = e.target.checked;
-    this.allSelected = checked;
+    const currentPageIds = this.getCurrentPageRows().map((row) => row.id);
+
     if (checked) {
-      this.selectedRows = this.rowData.map((row) => row.id);
+      let updatedSelectedRows = [...this.selectedRows];
+      currentPageIds.forEach((id) => {
+        if (!updatedSelectedRows.includes(id)) {
+          updatedSelectedRows.push(id);
+        }
+      });
+      this.selectedRows = updatedSelectedRows;
     } else {
-      this.selectedRows = [];
+      this.selectedRows = this.selectedRows.filter(
+        (id) => !currentPageIds.includes(id)
+      );
     }
+
+    this.allSelected = this.getCurrentPageRows().every((row) =>
+      this.selectedRows.includes(row.id)
+    );
   }
 
   toggleRowSelect(e, row) {
@@ -41,11 +56,19 @@ export class ListApp extends LitElement {
     } else {
       this.selectedRows = this.selectedRows.filter((id) => id !== row.id);
     }
-    this.allSelected = this.selectedRows.length === this.rowData.length;
+    this.allSelected = this.getCurrentPageRows().every((row) =>
+      this.selectedRows.includes(row.id)
+    );
   }
 
   onPageChange(e) {
     this.page = e.detail.page;
+  }
+
+  getCurrentPageRows() {
+    const start = (this.page - 1) * this.rowsPerPage;
+    const end = start + this.rowsPerPage;
+    return this.rowData.slice(start, end);
   }
 
   render() {
@@ -68,7 +91,7 @@ export class ListApp extends LitElement {
               </tr>
             </thead>
             <tbody>
-              ${this.rowData.map(
+              ${this.getCurrentPageRows().map(
                 (row) => html`<tr>
                   <td>
                     <input
@@ -120,7 +143,7 @@ export class ListApp extends LitElement {
         </div>
         <simple-pagination
           .page=${this.page}
-          .totalPages=${20}
+          .totalPages=${Math.ceil(this.rowData.length / this.rowsPerPage)}
           @page-change=${this.onPageChange}
         ></simple-pagination>
       </div>
