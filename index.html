@@ -4,8 +4,27 @@
   <head>
     <meta charset="utf-8" />
     <title>Lit Starter Kit</title>
+    <script type="module" src="/src/screens/employee-list/employee-list.js"></script>
+
+    <style>
+      body{
+        background-color: #F8F8F8;
+        padding: 1rem;
+      }
+    </style>
+    <script type="module">
+      import { employeeData } from './src/mockDataEmployee.js';
+      import { getObjectKeys } from './src/helperFunctions.js';
+    
+      window.addEventListener('DOMContentLoaded', () => {
+        const el = document.querySelector('employee-list');
+        el.rowData = employeeData;
+        el.headers = getObjectKeys(employeeData[0]);
+      });
+    </script>
   </head>
   <body>
-    <a href="/dev/index.html">Component Demo</a>
+    <!-- <a href="/dev/index.html">Component Demo</a> -->
+    <employee-list></employee-list>
   </body>
 </html>
