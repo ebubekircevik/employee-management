@@ -10,7 +10,7 @@ export const gridAppStyles = css`
     /* background-color: white; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 5rem 10rem;
   }
   @media (max-width: 600px) {
     .grid-container {
