@@ -19,6 +19,8 @@ export const mainNavbarStyles = css`
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    cursor: pointer;
+    text-decoration: none;
   }
   .navbar-logo {
     width: 36px;

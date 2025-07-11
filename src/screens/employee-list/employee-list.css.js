@@ -3,7 +3,9 @@ import {css} from 'lit';
 export const employeeListStyles = css`
   :host {
     display: block;
-    padding: 0 4rem;
+    /* padding: 0 4rem; */
+    max-width: 1100px;
+    margin: 2rem auto;
   }
   .employee-list-container {
     /* border: 1px solid red; */

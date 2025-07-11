@@ -32,12 +32,12 @@ export class MainNavbar extends LitElement {
     const selectedLang = LANGUAGES.find((l) => l.code === this.lang);
     return html`
       <nav class="navbar">
-        <div class="navbar-left">
+        <a class="navbar-left" href="/">
           <div class="navbar-logo">
             <img src="/src/_assets/icons/ing-logo.png" alt="ING logo" />
           </div>
           <span class="navbar-title">ING</span>
-        </div>
+        </a>
         <div class="navbar-right">
           <a class="nav-link" href="/">
             <img src="/src/_assets/icons/employee.svg" alt="employee logo" />
