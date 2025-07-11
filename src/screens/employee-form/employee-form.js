@@ -1,8 +1,10 @@
 import {LitElement, html} from 'lit';
 import {employeeFormStyles} from './employee-form.css.js';
 import {employeeData} from '../../mockDataEmployee.js';
+import {t} from '../../i18n.js';
+import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
 
-export class EmployeeForm extends LitElement {
+export class EmployeeForm extends TranslatableMixin(LitElement) {
   static properties = {
     employee: {type: Object},
     mode: {type: String},
@@ -74,11 +76,11 @@ export class EmployeeForm extends LitElement {
     return html`
       <div class="outer-container">
         <div class="header-container">
-          <p>${this.mode === 'edit' ? 'Edit Employee' : 'Add Employee'}</p>
+          <p>${this.mode === 'edit' ? t('editEmployee') : t('addEmployee')}</p>
         </div>
         <form class="form-container" @submit=${this.handleSubmit}>
           <div class="form-group">
-            <label>First Name</label>
+            <label>${t('firstName')}</label>
             <input
               name="firstName"
               .value=${this.employee.firstName}
@@ -87,7 +89,7 @@ export class EmployeeForm extends LitElement {
             />
           </div>
           <div class="form-group">
-            <label>Last Name</label>
+            <label>${t('lastName')}</label>
             <input
               name="lastName"
               .value=${this.employee.lastName}
@@ -96,7 +98,7 @@ export class EmployeeForm extends LitElement {
             />
           </div>
           <div class="form-group">
-            <label>Date of Employment</label>
+            <label>${t('dateOfEmployment')}</label>
             <input
               name="dateOfEmployment"
               type="date"
@@ -106,7 +108,7 @@ export class EmployeeForm extends LitElement {
             />
           </div>
           <div class="form-group">
-            <label>Date of Birth</label>
+            <label>${t('dateOfBirth')}</label>
             <input
               name="dateOfBirth"
               type="date"
@@ -116,7 +118,7 @@ export class EmployeeForm extends LitElement {
             />
           </div>
           <div class="form-group">
-            <label>Phone</label>
+            <label>${t('phone')}</label>
             <input
               name="phone"
               .value=${this.employee.phone}
@@ -125,7 +127,7 @@ export class EmployeeForm extends LitElement {
             />
           </div>
           <div class="form-group">
-            <label>Email</label>
+            <label>${t('email')}</label>
             <input
               name="email"
               type="email"
@@ -135,42 +137,41 @@ export class EmployeeForm extends LitElement {
             />
           </div>
           <div class="form-group">
-            <label>Department</label>
-
+            <label>${t('department')}</label>
             <select
               name="department"
               .value=${this.employee.department}
               @change=${this.handleInput}
               required
             >
-              <option value="">Please Select</option>
+              <option value="">${t('pleaseSelect')}</option>
               <option value="Analytics">Analytics</option>
               <option value="Tech">Tech</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Position</label>
+            <label>${t('position')}</label>
             <select
               name="position"
               .value=${this.employee.position}
               @change=${this.handleInput}
               required
             >
-              <option value="">Please Select</option>
-              <option value="Junior">Junior</option>
-              <option value="Medior">Medior</option>
-              <option value="Senior">Senior</option>
+              <option value="">${t('pleaseSelect')}</option>
+              <option value="Junior">${t('junior')}</option>
+              <option value="Medior">${t('medior')}</option>
+              <option value="Senior">${t('senior')}</option>
             </select>
           </div>
           <div class="form-group"></div>
           <div class="form-actions">
-            <button type="submit" class="save-btn">Save</button>
+            <button type="submit" class="save-btn">${t('save')}</button>
             <button
               type="button"
               class="cancel-btn"
               @click=${this.handleCancel}
             >
-              Cancel
+              ${t('cancel')}
             </button>
           </div>
         </form>

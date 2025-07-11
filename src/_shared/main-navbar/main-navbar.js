@@ -1,35 +1,37 @@
 import {LitElement, html} from 'lit';
 import {mainNavbarStyles} from './main-navbar.css.js';
+import {t} from '../../i18n.js';
+import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
 
 const LANGUAGES = [
   {code: 'tr', label: 'Türkçe', flag: '🇹🇷'},
   {code: 'en', label: 'English', flag: '🇺🇸'},
 ];
 
-export class MainNavbar extends LitElement {
+export class MainNavbar extends TranslatableMixin(LitElement) {
   static styles = mainNavbarStyles;
   static properties = {
     lang: {type: String},
     langDropdownOpen: {type: Boolean},
+    selectedLang: {type: Object},
   };
 
   constructor() {
     super();
-    this.lang = 'tr';
+    this.lang = document.documentElement.lang || 'en';
     this.langDropdownOpen = false;
-  }
-
-  toggleLangDropdown() {
-    this.langDropdownOpen = !this.langDropdownOpen;
+    this.selectedLang = LANGUAGES.find((l) => l.code === this.lang);
   }
 
   selectLang(code) {
-    this.lang = code;
+    document.documentElement.lang = code;
+    this.selectedLang = LANGUAGES.find((l) => l.code === code);
     this.langDropdownOpen = false;
+    window.dispatchEvent(new Event('language-changed'));
   }
 
   render() {
-    const selectedLang = LANGUAGES.find((l) => l.code === this.lang);
+    console.log(this.selectedLang)
     return html`
       <nav class="navbar">
         <a class="navbar-left" href="/">
@@ -41,15 +43,18 @@ export class MainNavbar extends LitElement {
         <div class="navbar-right">
           <a class="nav-link" href="/">
             <img src="/src/_assets/icons/employee.svg" alt="employee logo" />
-            Employees
+            ${t('employees')}
           </a>
           <a class="nav-link add" href="/edit/new">
             <img src="/src/_assets/icons/plus.svg" alt="plus logo" />
-            Add New
+            ${t('addNew')}
           </a>
           <div style="position:relative;">
-            <button class="lang-btn" @click="${this.toggleLangDropdown}">
-              <span style="font-size:1.1em;">${selectedLang.flag}</span>
+            <button
+              class="lang-btn"
+              @click="${() => (this.langDropdownOpen = !this.langDropdownOpen)}"
+            >
+              <span style="font-size:1.1em;">${this.selectedLang.flag}</span>
             </button>
             ${this.langDropdownOpen
               ? html`

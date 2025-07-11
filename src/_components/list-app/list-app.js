@@ -2,8 +2,10 @@ import {LitElement, html} from 'lit';
 import {listAppStyles} from './list-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import {Router} from '@vaadin/router';
+import {t} from '../../i18n.js';
+import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
 
-export class ListApp extends LitElement {
+export class ListApp extends TranslatableMixin(LitElement) {
   static styles = [listAppStyles];
   static properties = {
     rowData: {type: Array},
@@ -87,8 +89,8 @@ export class ListApp extends LitElement {
                     @change=${this.toggleSelectAll}
                   />
                 </td>
-                ${this.headers.map((header) => html`<td>${header}</td>`)}
-                <td>Actions</td>
+                ${this.headers.map((header) => html`<td>${t(header)}</td>`)}
+                <td>${t('actions')}</td>
               </tr>
             </thead>
             <tbody>
@@ -111,26 +113,26 @@ export class ListApp extends LitElement {
                   <td>${row.positon}</td>
                   <td>
                     <button
-                      title="Edit"
+                      title="${t('edit')}"
                       @click=${() => this.editRow(row)}
                       class="icon"
                     >
                       <img
                         src="/src/_assets/icons/edit_square.svg"
-                        alt="Edit"
+                        alt="${t('edit')}"
                         width="24"
                         height="24"
                         style="vertical-align:middle;"
                       />
                     </button>
                     <button
-                      title="Delete"
+                      title="${t('delete')}"
                       @click=${() => this.deleteRow(row)}
                       class="icon"
                     >
                       <img
                         src="/src/_assets/icons/delete.svg"
-                        alt="Delete"
+                        alt="${t('delete')}"
                         width="24"
                         height="24"
                         style="vertical-align:middle;"

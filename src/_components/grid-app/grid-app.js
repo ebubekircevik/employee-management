@@ -2,14 +2,16 @@ import {LitElement, html} from 'lit';
 import {gridAppStyles} from './grid-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import '../../_shared/employee-card/employee-card.js';
+import {t} from '../../i18n.js';
+import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
 
-export class GridApp extends LitElement {
+export class GridApp extends TranslatableMixin(LitElement) {
   static styles = [gridAppStyles];
   static properties = {
     rowData: {type: Array},
     headers: {type: Array},
     rowsPerPage: {type: Number},
-    viewType: {type: String}, 
+    viewType: {type: String},
     search: {type: String},
     page: {type: Number},
     selectedRows: {type: Array},
@@ -74,18 +76,21 @@ export class GridApp extends LitElement {
 
   render() {
     console.log(this.selectedRows);
+    const currentRows = this.getCurrentPageRows();
     return html`
       <div>
         <div class="grid-container">
-          ${this.getCurrentPageRows().map(
-            (row) => html`
-              <employee-card
-                .row=${row}
-                @edit=${(e) => this.editRow(e.detail)}
-                @delete=${(e) => this.deleteRow(e.detail)}
-              ></employee-card>
-            `
-          )}
+          ${currentRows.length === 0
+            ? html`<div class="no-employees">${t('noEmployees')}</div>`
+            : currentRows.map(
+                (row) => html`
+                  <employee-card
+                    .row=${row}
+                    @edit=${(e) => this.editRow(e.detail)}
+                    @delete=${(e) => this.deleteRow(e.detail)}
+                  ></employee-card>
+                `
+              )}
         </div>
         <simple-pagination
           style="margin-top: 1rem;"

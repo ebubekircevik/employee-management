@@ -5,24 +5,17 @@ import '../../_components/grid-app/grid-app.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import {employeeData} from '../../mockDataEmployee.js';
 import {getObjectKeys} from '../../helperFunctions.js';
+import {t} from '../../i18n.js';
+import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
 
-export class EmployeeList extends LitElement {
+export class EmployeeList extends TranslatableMixin(LitElement) {
   static styles = [employeeListStyles];
   static properties = {
-    // rowData: {type: Array},
-    // headers: {type: Array},
-    // search: {type: String},
-
-    // page: {type: Number},
     isListView: {type: Boolean},
   };
 
   constructor() {
     super();
-    // this.rowData = [];
-    // this.headers = [];
-    // this.search = '';
-    // this.page = 1;
     this.isListView = true;
   }
 
@@ -30,11 +23,11 @@ export class EmployeeList extends LitElement {
     return html`
       <div class="employee-list-container">
         <div class="header-container">
-          <p>Employee List</p>
+          <p>${t('employeeList')}</p>
           <div class="view-toggle-icons">
             <img
               src="/src/_assets/icons/list_view.svg"
-              alt="List View"
+              alt="${t('listView')}"
               width="24"
               height="24"
               style="cursor:pointer;"
@@ -42,7 +35,7 @@ export class EmployeeList extends LitElement {
             />
             <img
               src="/src/_assets/icons/grid_view.svg"
-              alt="Grid View"
+              alt="${t('gridView')}"
               width="24"
               height="24"
               style="cursor:pointer;"
