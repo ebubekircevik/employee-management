@@ -11,10 +11,24 @@ if (!['dev', 'prod'].includes(mode)) {
   throw new Error(`MODE must be "dev" or "prod", was "${mode}"`);
 }
 
+// export default {
+//   nodeResolve: {exportConditions: mode === 'dev' ? ['development'] : []},
+//   preserveSymlinks: true,
+//   historyApiFallback: true,
+//   plugins: [
+//     legacyPlugin({
+//       polyfills: {
+//         // Manually imported in index.html file
+//         webcomponents: false,
+//       },
+//     }),
+//   ],
+// };
 export default {
-  nodeResolve: {exportConditions: mode === 'dev' ? ['development'] : []},
-  preserveSymlinks: true,
+  nodeResolve: true,
+  appIndex: 'index.html',
   historyApiFallback: true,
+  preserveSymlinks: true,
   plugins: [
     legacyPlugin({
       polyfills: {
