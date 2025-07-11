@@ -39,6 +39,7 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@vaadin/date-picker": "^24.8.3",
     "@vaadin/router": "^2.0.0",
     "lit": "^3.2.0",
     "lit-element-router": "^2.0.3"

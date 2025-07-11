@@ -3,6 +3,8 @@ import {employeeFormStyles} from './employee-form.css.js';
 import {employeeData} from '../../mockDataEmployee.js';
 import {t} from '../../i18n.js';
 import {I18nMixin} from '../../_mixins/I18nMixin.js';
+import '../../_components/date-picker/date-picker.js';
+import {toISODate} from '../../helperFunctions.js';
 
 export class EmployeeForm extends I18nMixin(LitElement) {
   static properties = {
@@ -99,23 +101,45 @@ export class EmployeeForm extends I18nMixin(LitElement) {
           </div>
           <div class="form-group">
             <label>${t('dateOfEmployment')}</label>
-            <input
+            <!-- <input
+              class="with-calendar"
               name="dateOfEmployment"
               type="date"
               .value=${this.employee.dateOfEmployment}
               @input=${this.handleInput}
               required
-            />
+            /> -->
+            <date-picker
+              .value=${toISODate(this.employee.dateOfEmployment)}
+              .required=${true}
+              @value-changed=${(e) =>
+                (this.employee = {
+                  ...this.employee,
+                  dateOfEmployment: e.detail.value,
+                })}
+            ></date-picker>
           </div>
           <div class="form-group">
             <label>${t('dateOfBirth')}</label>
+            <!--
             <input
+              class="with-calendar"
               name="dateOfBirth"
               type="date"
               .value=${this.employee.dateOfBirth}
               @input=${this.handleInput}
               required
             />
+            -->
+            <date-picker
+              .value=${toISODate(this.employee.dateOfBirth)}
+              .required=${true}
+              @value-changed=${(e) =>
+                (this.employee = {
+                  ...this.employee,
+                  dateOfBirth: e.detail.value,
+                })}
+            ></date-picker>
           </div>
           <div class="form-group">
             <label>${t('phone')}</label>
@@ -139,6 +163,7 @@ export class EmployeeForm extends I18nMixin(LitElement) {
           <div class="form-group">
             <label>${t('department')}</label>
             <select
+              class="custom-select"
               name="department"
               .value=${this.employee.department}
               @change=${this.handleInput}
@@ -152,6 +177,7 @@ export class EmployeeForm extends I18nMixin(LitElement) {
           <div class="form-group">
             <label>${t('position')}</label>
             <select
+              class="custom-select"
               name="position"
               .value=${this.employee.position}
               @change=${this.handleInput}

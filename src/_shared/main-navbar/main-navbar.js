@@ -5,7 +5,7 @@ import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
 const LANGUAGES = [
   {code: 'tr', label: 'Türkçe', flag: '🇹🇷'},
-  {code: 'en', label: 'English', flag: '🇺🇸'},
+  {code: 'en', label: 'English', flag: '🇬🇧'},
 ];
 
 export class MainNavbar extends I18nMixin(LitElement) {
@@ -31,7 +31,6 @@ export class MainNavbar extends I18nMixin(LitElement) {
   }
 
   render() {
-    console.log(this.selectedLang);
     return html`
       <nav class="navbar">
         <a class="navbar-left" href="/">

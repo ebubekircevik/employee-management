@@ -104,4 +104,25 @@ export const employeeFormStyles = css`
       gap: 1rem;
     }
   }
+  .custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('/src/_assets/icons/arrow_drop_down.svg') no-repeat right
+      0.75em center/1.5em;
+    padding-right: 2.5em;
+  }
+  .with-calendar {
+    background: url('/src/_assets/icons/calendar.svg') no-repeat right 0.75em
+      center/1.5em;
+    /* padding-right: 2.5em; */
+  }
+  input[type='date']::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+    color: white;
+  }
+  input[type='date']::-moz-calendar-picker-indicator {
+    display: none;
+  }
 `;
