@@ -3,9 +3,9 @@ import {listAppStyles} from './list-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import {Router} from '@vaadin/router';
 import {t} from '../../i18n.js';
-import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
+import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
-export class ListApp extends TranslatableMixin(LitElement) {
+export class ListApp extends I18nMixin(LitElement) {
   static styles = [listAppStyles];
   static properties = {
     rowData: {type: Array},

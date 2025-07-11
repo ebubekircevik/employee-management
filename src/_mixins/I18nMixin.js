@@ -1,4 +1,4 @@
-export const TranslatableMixin = (Base) =>
+export const I18nMixin = (Base) =>
   class extends Base {
     connectedCallback() {
       super.connectedCallback();

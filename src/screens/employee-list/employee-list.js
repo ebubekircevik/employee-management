@@ -6,9 +6,9 @@ import '../../_shared/simple-pagination/simple-pagination.js';
 import {employeeData} from '../../mockDataEmployee.js';
 import {getObjectKeys} from '../../helperFunctions.js';
 import {t} from '../../i18n.js';
-import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
+import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
-export class EmployeeList extends TranslatableMixin(LitElement) {
+export class EmployeeList extends I18nMixin(LitElement) {
   static styles = [employeeListStyles];
   static properties = {
     isListView: {type: Boolean},

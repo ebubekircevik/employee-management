@@ -3,9 +3,9 @@ import {gridAppStyles} from './grid-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import '../../_shared/employee-card/employee-card.js';
 import {t} from '../../i18n.js';
-import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
+import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
-export class GridApp extends TranslatableMixin(LitElement) {
+export class GridApp extends I18nMixin(LitElement) {
   static styles = [gridAppStyles];
   static properties = {
     rowData: {type: Array},

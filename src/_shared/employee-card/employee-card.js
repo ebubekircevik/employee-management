@@ -1,9 +1,9 @@
 import {LitElement, html} from 'lit';
 import {employeeCardStyles} from './employee-card.css.js';
 import {t} from '../../i18n.js';
-import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
+import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
-export class EmployeeCard extends TranslatableMixin(LitElement) {
+export class EmployeeCard extends I18nMixin(LitElement) {
   static properties = {
     row: {type: Object},
   };

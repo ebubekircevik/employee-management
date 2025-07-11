@@ -2,9 +2,9 @@ import {LitElement, html} from 'lit';
 import {employeeFormStyles} from './employee-form.css.js';
 import {employeeData} from '../../mockDataEmployee.js';
 import {t} from '../../i18n.js';
-import {TranslatableMixin} from '../../_mixins/TranslatableMixin.js';
+import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
-export class EmployeeForm extends TranslatableMixin(LitElement) {
+export class EmployeeForm extends I18nMixin(LitElement) {
   static properties = {
     employee: {type: Object},
     mode: {type: String},
