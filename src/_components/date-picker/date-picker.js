@@ -1,7 +1,7 @@
-import {LitElement, html} from 'lit';
+import {BaseComponent} from '../../_base/BaseComponent.js';
+import {html} from 'lit';
 import {datePickerStyles} from './date-picker.css.js';
 import '@vaadin/date-picker';
-import {I18nMixin} from '../../_mixins/I18nMixin.js';
 import {fromISODate} from '../../helperFunctions.js';
 import {t} from '../../i18n.js';
 
@@ -97,7 +97,7 @@ function getCurrentLang() {
   return document.documentElement.lang || 'en';
 }
 
-export class DatePicker extends I18nMixin(LitElement) {
+export class DatePicker extends BaseComponent {
   static properties = {
     value: {type: String},
     label: {type: String},

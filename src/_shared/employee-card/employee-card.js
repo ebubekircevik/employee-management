@@ -1,9 +1,9 @@
-import {LitElement, html} from 'lit';
+import {BaseComponent} from '../../_base/BaseComponent.js';
+import {html} from 'lit';
 import {employeeCardStyles} from './employee-card.css.js';
 import {t} from '../../i18n.js';
-import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
-export class EmployeeCard extends I18nMixin(LitElement) {
+export class EmployeeCard extends BaseComponent {
   static properties = {
     row: {type: Object},
   };
