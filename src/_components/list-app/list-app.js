@@ -1,11 +1,11 @@
-import {LitElement, html} from 'lit';
+import {html} from 'lit';
+import {BaseComponent} from '../../_base/BaseComponent.js';
 import {listAppStyles} from './list-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import {Router} from '@vaadin/router';
 import {t} from '../../i18n.js';
-import {I18nMixin} from '../../_mixins/I18nMixin.js';
 
-export class ListApp extends I18nMixin(LitElement) {
+export class ListApp extends BaseComponent {
   static styles = [listAppStyles];
   static properties = {
     rowData: {type: Array},
@@ -158,8 +158,12 @@ export class ListApp extends I18nMixin(LitElement) {
   editRow(row) {
     Router.go(`/edit/${row.id}`);
   }
+
   deleteRow(row) {
-    console.log('Delete:', row);
+    if (confirm(`${t('delete')} ${row.firstName} ${row.lastName}?`)) {
+      console.log('Employee deleted:', row);
+      // Store functionality removed for now
+    }
   }
 }
 

@@ -1,16 +1,18 @@
-import {LitElement, html} from 'lit';
+import {html} from 'lit';
+import {BaseComponent} from '../../_base/BaseComponent.js';
+import {StoreMixin} from '../../_mixins/StoreMixin.js';
+import {employeeStore} from '../../stores/employeeStore.js';
 import {employeeFormStyles} from './employee-form.css.js';
-import {employeeData} from '../../mockDataEmployee.js';
 import {t} from '../../i18n.js';
-import {I18nMixin} from '../../_mixins/I18nMixin.js';
 import '../../_components/date-picker/date-picker.js';
 import {toISODate} from '../../helperFunctions.js';
 import '@vaadin/form-layout';
 import '@vaadin/text-field';
 import '@vaadin/email-field';
 import '@vaadin/select';
+import {Router} from '@vaadin/router';
 
-export class EmployeeForm extends I18nMixin(LitElement) {
+export class EmployeeForm extends StoreMixin(BaseComponent) {
   static properties = {
     employee: {type: Object},
     mode: {type: String},
@@ -20,6 +22,7 @@ export class EmployeeForm extends I18nMixin(LitElement) {
 
   constructor() {
     super();
+    this.store = employeeStore;
     this.employee = {
       firstName: '',
       lastName: '',
@@ -36,7 +39,7 @@ export class EmployeeForm extends I18nMixin(LitElement) {
   onBeforeEnter(location) {
     const id = location.params.id;
     if (id) {
-      const found = employeeData.find((emp) => String(emp.id) === String(id));
+      const found = this.getEmployeeById(Number(id));
       if (found) {
         this.employee = {...found};
         this.mode = 'edit';
@@ -68,6 +71,15 @@ export class EmployeeForm extends I18nMixin(LitElement) {
       return;
     }
     console.log('handleSubmit');
+
+    if (this.mode === 'edit') {
+      this.updateEmployee(this.employee);
+    } else {
+      this.addEmployee(this.employee);
+    }
+
+    Router.go('/');
+
     this.dispatchEvent(
       new CustomEvent('save', {
         detail: this.employee,
@@ -78,6 +90,8 @@ export class EmployeeForm extends I18nMixin(LitElement) {
   }
 
   handleCancel() {
+    Router.go('/');
+
     this.dispatchEvent(
       new CustomEvent('cancel', {bubbles: true, composed: true})
     );

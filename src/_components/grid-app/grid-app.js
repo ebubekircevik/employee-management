@@ -1,11 +1,12 @@
-import {LitElement, html} from 'lit';
+import {html} from 'lit';
+import {BaseComponent} from '../../_base/BaseComponent.js';
 import {gridAppStyles} from './grid-app.css.js';
 import '../../_shared/simple-pagination/simple-pagination.js';
 import '../../_shared/employee-card/employee-card.js';
 import {t} from '../../i18n.js';
-import {I18nMixin} from '../../_mixins/I18nMixin.js';
+import {Router} from '@vaadin/router';
 
-export class GridApp extends I18nMixin(LitElement) {
+export class GridApp extends BaseComponent {
   static styles = [gridAppStyles];
   static properties = {
     rowData: {type: Array},
@@ -103,13 +104,14 @@ export class GridApp extends I18nMixin(LitElement) {
   }
 
   editRow(row) {
-    // Düzenleme işlemi burada yapılacak
-    console.log('Edit:', row);
+    Router.go(`/edit/${row.id}`);
   }
 
   deleteRow(row) {
-    // Silme işlemi burada yapılacak
-    console.log('Delete:', row);
+    if (confirm(`${t('delete')} ${row.firstName} ${row.lastName}?`)) {
+      console.log('Employee deleted:', row);
+      // Store functionality removed for now
+    }
   }
 }
 
