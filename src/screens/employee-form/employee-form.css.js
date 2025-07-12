@@ -34,7 +34,7 @@ export const employeeFormStyles = css`
   input,
   select {
     padding: 0.5rem 0.7rem;
-    border: 1px solid #bbb;
+    border: 1px solid #999;
     border-radius: 4px;
     font-size: 1rem;
     outline: none;
@@ -124,5 +124,17 @@ export const employeeFormStyles = css`
   }
   input[type='date']::-moz-calendar-picker-indicator {
     display: none;
+  }
+  vaadin-text-field {
+    padding: 0;
+    input {
+      padding: 0 5px;
+    }
+  }
+  vaadin-text-field::part(input-field) {
+    background-color: #fff;
+    padding: 0;
+    border: 1px solid #999 !important;
+    border-radius: 4px;
   }
 `;

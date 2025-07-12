@@ -3,6 +3,7 @@ import {datePickerStyles} from './date-picker.css.js';
 import '@vaadin/date-picker';
 import {I18nMixin} from '../../_mixins/I18nMixin.js';
 import {fromISODate} from '../../helperFunctions.js';
+import {t} from '../../i18n.js';
 
 const i18nTr = {
   monthNames: [
@@ -130,6 +131,8 @@ export class DatePicker extends I18nMixin(LitElement) {
         .i18n=${this._i18n}
         ?required=${this.required}
         ?disabled=${this.disabled}
+        error-message="${this.required ? t('requiredFieldError') : ''}"
+        ?invalid=${this.required && !this.value}
         @value-changed=${(e) => this._onValueChanged(e)}
       ></vaadin-date-picker>
     `;

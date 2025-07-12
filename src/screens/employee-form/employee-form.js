@@ -5,6 +5,10 @@ import {t} from '../../i18n.js';
 import {I18nMixin} from '../../_mixins/I18nMixin.js';
 import '../../_components/date-picker/date-picker.js';
 import {toISODate} from '../../helperFunctions.js';
+import '@vaadin/form-layout';
+import '@vaadin/text-field';
+import '@vaadin/email-field';
+import '@vaadin/select';
 
 export class EmployeeForm extends I18nMixin(LitElement) {
   static properties = {
@@ -59,6 +63,11 @@ export class EmployeeForm extends I18nMixin(LitElement) {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.isFormValid()) {
+      console.log('Form is not valid, submission prevented');
+      return;
+    }
+    console.log('handleSubmit');
     this.dispatchEvent(
       new CustomEvent('save', {
         detail: this.employee,
@@ -74,7 +83,29 @@ export class EmployeeForm extends I18nMixin(LitElement) {
     );
   }
 
+  isFormValid() {
+    const hasRequiredFields = Object.keys(this.employee).every(
+      (fieldName) =>
+        !!(typeof this.employee[fieldName] === 'string'
+          ? this.employee[fieldName].trim()
+          : this.employee[fieldName])
+    );
+
+    const phoneRegex = /^\(90\)\s5\d{2}\s\d{3}\s\d{2}\s\d{2}$/;
+    const hasValidPhone =
+      this.employee.phone === '' || phoneRegex.test(this.employee.phone);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const hasValidEmail =
+      this.employee.email.trim() === '' ||
+      emailRegex.test(this.employee.email.trim());
+
+    return hasRequiredFields && hasValidPhone && hasValidEmail;
+  }
+
   render() {
+    // console.log(this.employee);
+    console.log(this.isFormValid());
     return html`
       <div class="outer-container">
         <div class="header-container">
@@ -101,14 +132,6 @@ export class EmployeeForm extends I18nMixin(LitElement) {
           </div>
           <div class="form-group">
             <label>${t('dateOfEmployment')}</label>
-            <!-- <input
-              class="with-calendar"
-              name="dateOfEmployment"
-              type="date"
-              .value=${this.employee.dateOfEmployment}
-              @input=${this.handleInput}
-              required
-            /> -->
             <date-picker
               .value=${toISODate(this.employee.dateOfEmployment)}
               .required=${true}
@@ -121,16 +144,6 @@ export class EmployeeForm extends I18nMixin(LitElement) {
           </div>
           <div class="form-group">
             <label>${t('dateOfBirth')}</label>
-            <!--
-            <input
-              class="with-calendar"
-              name="dateOfBirth"
-              type="date"
-              .value=${this.employee.dateOfBirth}
-              @input=${this.handleInput}
-              required
-            />
-            -->
             <date-picker
               .value=${toISODate(this.employee.dateOfBirth)}
               .required=${true}
@@ -143,12 +156,20 @@ export class EmployeeForm extends I18nMixin(LitElement) {
           </div>
           <div class="form-group">
             <label>${t('phone')}</label>
-            <input
+            <vaadin-text-field
               name="phone"
               .value=${this.employee.phone}
-              @input=${this.handleInput}
+              @value-changed=${(e) => (this.employee.phone = e.detail.value)}
               required
-            />
+              pattern="\\(90\\)\\s5\\d{2}\\s\\d{3}\\s\\d{2}\\s\\d{2}"
+              placeholder="(90) 5xx xxx xx xx"
+              error-message="${t('phoneValidationError')}"
+              ?invalid=${this.employee.phone &&
+              this.employee.phone.length > 0 &&
+              !/^\(90\)\s5\d{2}\s\d{3}\s\d{2}\s\d{2}$/.test(
+                this.employee.phone
+              )}
+            ></vaadin-text-field>
           </div>
           <div class="form-group">
             <label>${t('email')}</label>
@@ -191,7 +212,13 @@ export class EmployeeForm extends I18nMixin(LitElement) {
           </div>
           <div class="form-group"></div>
           <div class="form-actions">
-            <button type="submit" class="save-btn">${t('save')}</button>
+            <button
+              type="submit"
+              class="save-btn"
+              style="opacity: ${this.isFormValid() ? '1' : '0.5'}"
+            >
+              ${t('save')}
+            </button>
             <button
               type="button"
               class="cancel-btn"

@@ -26,6 +26,8 @@ export const translations = {
     edit: 'Düzenle',
     delete: 'Sil',
     noEmployees: 'Çalışan bulunamadı',
+    phoneValidationError: 'Geçerli bir telefon numarası giriniz',
+    requiredFieldError: 'Bu alan zorunludur',
   },
   en: {
     employees: 'Employees',
@@ -54,6 +56,8 @@ export const translations = {
     edit: 'Edit',
     delete: 'Delete',
     noEmployees: 'No employees found',
+    phoneValidationError: 'Please enter a valid phone number',
+    requiredFieldError: 'This field is required',
   },
 };
 
