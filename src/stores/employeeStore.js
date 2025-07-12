@@ -64,7 +64,10 @@ export const employeeStore = {
 
   // Generate unique ID
   generateId() {
-    const maxId = Math.max(...this.data.map((emp) => emp.id), 0);
+    if (this.data.length === 0) {
+      return 1;
+    }
+    const maxId = Math.max(...this.data.map((emp) => emp.id));
     return maxId + 1;
   },
 
