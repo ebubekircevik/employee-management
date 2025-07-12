@@ -28,6 +28,9 @@ export const translations = {
     noEmployees: 'Çalışan bulunamadı',
     phoneValidationError: 'Geçerli bir telefon numarası giriniz',
     requiredFieldError: 'Bu alan zorunludur',
+    areYouSure: 'Emin misiniz?',
+    deleteEmployeeConfirm: "{name}'ın seçili çalışan kaydı silinecek",
+    proceed: 'Devam Et',
   },
   en: {
     employees: 'Employees',
@@ -58,6 +61,9 @@ export const translations = {
     noEmployees: 'No employees found',
     phoneValidationError: 'Please enter a valid phone number',
     requiredFieldError: 'This field is required',
+    areYouSure: 'Are you sure?',
+    deleteEmployeeConfirm: 'Selected Employee record of {name} will be deleted',
+    proceed: 'Proceed',
   },
 };
 
@@ -65,9 +71,16 @@ export function getCurrentLang() {
   return document.documentElement.lang || 'en';
 }
 
-export function t(key) {
+export function t(key, params) {
   const lang = getCurrentLang();
-  return translations[lang] && translations[lang][key]
-    ? translations[lang][key]
-    : key;
+  let str =
+    translations[lang] && translations[lang][key]
+      ? translations[lang][key]
+      : key;
+  if (params && typeof params === 'object') {
+    Object.keys(params).forEach((k) => {
+      str = str.replace(new RegExp('{' + k + '}', 'g'), params[k]);
+    });
+  }
+  return str;
 }

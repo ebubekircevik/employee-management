@@ -108,10 +108,13 @@ export class GridApp extends BaseComponent {
   }
 
   deleteRow(row) {
-    if (confirm(`${t('delete')} ${row.firstName} ${row.lastName}?`)) {
-      console.log('Employee deleted:', row);
-      // Store functionality removed for now
-    }
+    this.dispatchEvent(
+      new CustomEvent('delete-request', {
+        detail: row,
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }
 
