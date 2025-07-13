@@ -70,7 +70,6 @@ export class EmployeeForm extends StoreMixin(BaseComponent) {
       console.log('Form is not valid, submission prevented');
       return;
     }
-    console.log('handleSubmit');
 
     if (this.mode === 'edit') {
       this.updateEmployee(this.employee);
@@ -118,8 +117,6 @@ export class EmployeeForm extends StoreMixin(BaseComponent) {
   }
 
   render() {
-    // console.log(this.employee);
-    console.log(this.isFormValid());
     return html`
       <div class="outer-container">
         <div class="header-container">

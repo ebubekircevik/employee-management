@@ -75,7 +75,6 @@ export class ListApp extends BaseComponent {
   }
 
   render() {
-    console.log(this.selectedRows);
     return html`
       <div>
         <div class="list-container">

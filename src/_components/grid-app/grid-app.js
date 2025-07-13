@@ -76,7 +76,6 @@ export class GridApp extends BaseComponent {
   }
 
   render() {
-    console.log(this.selectedRows);
     const currentRows = this.getCurrentPageRows();
     return html`
       <div>

@@ -29,11 +29,9 @@ export const StoreMixin = (Base) =>
     }
 
     _onStoreUpdate(data) {
-      // Override this method in components to handle store updates
       this.requestUpdate();
     }
 
-    // Helper methods for common store operations
     addEmployee(employee) {
       if (this.store && typeof this.store.add === 'function') {
         return this.store.add(employee);

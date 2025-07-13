@@ -1,24 +1,20 @@
 import {employeeData} from './mockDataEmployee';
 // Observer Pattern'
 export const employeeStore = {
-  data: [...employeeData], // Initialize with mock data
+  data: [...employeeData],
   listeners: [],
 
-  // Get all employees
   get() {
     return this.data;
   },
 
-  // Get employee by ID
   getById(id) {
     return this.data.find((emp) => emp.id === id);
   },
 
-  // Subscribe to store changes
   subscribe(callback) {
     this.listeners.push(callback);
 
-    // Return unsubscribe function
     return () => {
       const index = this.listeners.indexOf(callback);
       if (index > -1) {
@@ -27,18 +23,15 @@ export const employeeStore = {
     };
   },
 
-  // Notify all listeners
   notify() {
     this.listeners.forEach((callback) => callback(this.data));
   },
 
-  // Set new data
   set(newData) {
     this.data = newData;
     this.notify();
   },
 
-  // Add new employee
   add(employee) {
     const newEmployee = {
       ...employee,
@@ -48,7 +41,6 @@ export const employeeStore = {
     return newEmployee;
   },
 
-  // Update existing employee
   update(updatedEmployee) {
     const updatedList = this.data.map((emp) =>
       emp.id === updatedEmployee.id ? updatedEmployee : emp
@@ -57,12 +49,10 @@ export const employeeStore = {
     return updatedEmployee;
   },
 
-  // Delete employee by ID
   delete(id) {
     this.set(this.data.filter((emp) => emp.id !== id));
   },
 
-  // Generate unique ID
   generateId() {
     if (this.data.length === 0) {
       return 1;
@@ -71,7 +61,6 @@ export const employeeStore = {
     return maxId + 1;
   },
 
-  // Search employees
   search(query) {
     if (!query) return this.data;
 
@@ -87,13 +76,11 @@ export const employeeStore = {
     );
   },
 
-  // Filter by department
   filterByDepartment(department) {
     if (!department) return this.data;
     return this.data.filter((emp) => emp.department === department);
   },
 
-  // Filter by position
   filterByPosition(position) {
     if (!position) return this.data;
     return this.data.filter((emp) => emp.position === position);
