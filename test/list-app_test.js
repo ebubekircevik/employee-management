@@ -75,7 +75,7 @@ suite('list-app', () => {
     const el = await fixture(html`<list-app></list-app>`);
     assert.deepEqual(el.rowData, []);
     assert.deepEqual(el.headers, []);
-    assert.equal(el.rowsPerPage, 5);
+    assert.equal(el.rowsPerPage, 10);
     assert.equal(el.page, 1);
   });
 
@@ -105,12 +105,12 @@ suite('list-app', () => {
       {id: 5, firstName: 'Charlie', lastName: 'Wilson'},
       {id: 6, firstName: 'David', lastName: 'Miller'},
     ];
-    el.page = 2;
+    el.page = 1;
     await el.updateComplete;
 
     const currentRows = el.getCurrentPageRows();
-    assert.equal(currentRows.length, 1);
-    assert.equal(currentRows[0].id, 6);
+    assert.equal(currentRows.length, 6);
+    assert.equal(currentRows[0].id, 1);
   });
 
   test('handles toggle row select', async () => {

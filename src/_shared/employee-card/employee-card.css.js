@@ -3,7 +3,6 @@ import {css} from 'lit';
 export const employeeCardStyles = css`
   .employee-card {
     border: 1px solid #ddd;
-    /* border-radius: 6px; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 1.5px 6px rgba(0, 0, 0, 0.08);
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
     background: white;

@@ -11,7 +11,6 @@ export const simplePaginationStyles = css`
   button {
     background: none;
     border: none;
-    /* color: #ff6101; */
     padding: 0.3rem 0.7rem;
     border-radius: 4px;
     cursor: pointer;
@@ -23,7 +22,6 @@ export const simplePaginationStyles = css`
     color: #ff6101;
   }
   button[disabled] {
-    /* opacity: 0.5; */
     cursor: not-allowed;
   }
   .active {

@@ -16,6 +16,7 @@ suite('employee-list', () => {
   test('shows employee data in list-app', async () => {
     const el = await fixture(html`<employee-list></employee-list>`);
     el.employees = [{id: 1, firstName: 'John', lastName: 'Doe'}];
+    el.filteredEmployees = el.employees;
     await el.updateComplete;
     const listApp = el.shadowRoot.querySelector('list-app');
     assert.exists(listApp, 'list-app should be rendered');
@@ -27,6 +28,7 @@ suite('employee-list', () => {
   test('shows employees', async () => {
     const el = await fixture(html`<employee-list></employee-list>`);
     el.employees = [{id: 1, firstName: 'John', lastName: 'Doe'}];
+    el.filteredEmployees = el.employees;
     await el.updateComplete;
     assert.exists(
       el.shadowRoot.querySelector('list-app') ||

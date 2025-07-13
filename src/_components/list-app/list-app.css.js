@@ -3,7 +3,6 @@ import {css} from 'lit';
 export const listAppStyles = css`
   :host {
     display: block;
-    /* padding: 1rem; */
   }
   .list-container {
     overflow: scroll;
@@ -13,7 +12,7 @@ export const listAppStyles = css`
     width: 100%;
     border-collapse: collapse;
     table-layout: auto;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
   }
   table th,
   table td {

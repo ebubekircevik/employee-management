@@ -50,7 +50,7 @@ export class EmployeeCard extends BaseComponent {
           </div>
           <div>
             <div class="label">${t('position')}:</div>
-            <div class="value">${row.positon}</div>
+            <div class="value">${row.position}</div>
           </div>
         </div>
         <div class="card-actions">

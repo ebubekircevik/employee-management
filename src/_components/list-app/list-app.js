@@ -22,7 +22,7 @@ export class ListApp extends BaseComponent {
     super();
     this.rowData = [];
     this.headers = [];
-    this.rowsPerPage = 5;
+    this.rowsPerPage = 10;
     this.viewType = 'table';
     this.search = '';
     this.page = 1;
@@ -109,7 +109,7 @@ export class ListApp extends BaseComponent {
                   <td>${row.phone}</td>
                   <td>${row.email}</td>
                   <td>${row.department}</td>
-                  <td>${row.positon}</td>
+                  <td>${row.position}</td>
                   <td>
                     <button
                       title="${t('edit')}"
@@ -145,7 +145,7 @@ export class ListApp extends BaseComponent {
         </div>
         <hr style="border: 1px solid #f1ebeb;" />
         <simple-pagination
-          style="margin-top: 1rem;"
+          style="margin-top: 1.2rem;"
           .page=${this.page}
           .totalPages=${Math.ceil(this.rowData.length / this.rowsPerPage)}
           @page-change=${this.onPageChange}

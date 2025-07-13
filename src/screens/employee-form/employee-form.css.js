@@ -2,7 +2,7 @@ import {css} from 'lit';
 
 export const employeeFormStyles = css`
   .outer-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 2rem auto;
   }
   .header-container > p {
@@ -115,7 +115,6 @@ export const employeeFormStyles = css`
   .with-calendar {
     background: url('/src/_assets/icons/calendar.svg') no-repeat right 0.75em
       center/1.5em;
-    /* padding-right: 2.5em; */
   }
   input[type='date']::-webkit-calendar-picker-indicator {
     display: none;

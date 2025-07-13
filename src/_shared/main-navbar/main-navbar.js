@@ -14,6 +14,7 @@ export class MainNavbar extends BaseComponent {
     lang: {type: String},
     langDropdownOpen: {type: Boolean},
     selectedLang: {type: Object},
+    currentPath: {type: String},
   };
 
   constructor() {
@@ -21,6 +22,7 @@ export class MainNavbar extends BaseComponent {
     this.lang = document.documentElement.lang || 'en';
     this.langDropdownOpen = false;
     this.selectedLang = LANGUAGES.find((l) => l.code === this.lang);
+    this.currentPath = window.location.pathname;
   }
 
   selectLang(code) {
@@ -40,11 +42,21 @@ export class MainNavbar extends BaseComponent {
           <span class="navbar-title">ING</span>
         </a>
         <div class="navbar-right">
-          <a class="nav-link" href="/">
+          <a
+            class="nav-link${this.currentPath === '/' ? '' : ' inactive'}"
+            href="/"
+            @click=${() => (this.currentPath = '/')}
+          >
             <img src="/src/_assets/icons/employee.svg" alt="employee logo" />
             ${t('employees')}
           </a>
-          <a class="nav-link add" href="/edit/new">
+          <a
+            class="nav-link${this.currentPath.includes('/edit')
+              ? ''
+              : ' inactive'}"
+            href="/edit/new"
+            @click=${() => (this.currentPath = '/edit')}
+          >
             <img src="/src/_assets/icons/plus.svg" alt="plus logo" />
             ${t('addNew')}
           </a>

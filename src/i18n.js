@@ -31,6 +31,8 @@ export const translations = {
     areYouSure: 'Emin misiniz?',
     deleteEmployeeConfirm: "{name}'ın seçili çalışan kaydı silinecek",
     proceed: 'Devam Et',
+    searchEmployees: 'Çalışan ara...',
+    noSearchResults: 'Arama kriterlerinize uygun çalışan bulunamadı',
   },
   en: {
     employees: 'Employees',
@@ -64,6 +66,8 @@ export const translations = {
     areYouSure: 'Are you sure?',
     deleteEmployeeConfirm: 'Selected Employee record of {name} will be deleted',
     proceed: 'Proceed',
+    searchEmployees: 'Search employees...',
+    noSearchResults: 'No employees found matching your search criteria',
   },
 };
 

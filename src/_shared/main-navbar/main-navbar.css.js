@@ -7,7 +7,12 @@ export const mainNavbarStyles = css`
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
     border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
   }
+
   .navbar {
     display: flex;
     align-items: center;
@@ -60,25 +65,21 @@ export const mainNavbarStyles = css`
     transition: color 0.2s;
   }
   .nav-link.add {
-    /* color: #ffb899; */
     color: #ff6200;
     font-weight: 400;
+  }
+  .nav-link.inactive {
+    opacity: 0.6;
   }
   .lang-btn {
     background: white;
     color: #fff;
     border: none;
-    /* border-radius: 4px; */
     padding: 0;
     font-size: 1.2rem;
-    /* font-weight: 600; */
     cursor: pointer;
-    /* margin-left: 1rem; */
     display: flex;
     align-items: center;
-    /* gap: 0.3rem; */
-    /* position: relative; */
-    /* z-index: 11; */
   }
 
   .lang-dropdown {

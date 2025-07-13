@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>84/84</span>
+                <span class='fraction'>96/96</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">88.23% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>15/17</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>84/84</span>
+                <span class='fraction'>96/96</span>
             </div>
         
             
@@ -147,7 +147,20 @@
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -171,6 +184,7 @@
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -180,6 +194,16 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
@@ -247,6 +271,7 @@ export class MainNavbar extends BaseComponent {
     lang: {type: String},
     langDropdownOpen: {type: Boolean},
     selectedLang: {type: Object},
+    currentPath: {type: String},
   };
 &nbsp;
   constructor() {
@@ -254,6 +279,7 @@ export class MainNavbar extends BaseComponent {
     this.lang = document.documentElement.lang || 'en';
     this.langDropdownOpen = false;
     this.selectedLang = LANGUAGES.find((l) =&gt; l.code === this.lang);
+    this.currentPath = window.location.pathname;
   }
 &nbsp;
   selectLang(code) {
@@ -273,11 +299,21 @@ export class MainNavbar extends BaseComponent {
           &lt;span class="navbar-title"&gt;ING&lt;/span&gt;
         &lt;/a&gt;
         &lt;div class="navbar-right"&gt;
-          &lt;a class="nav-link" href="/"&gt;
+          &lt;a
+            class="nav-link${this.currentPath === '/' ? '' <span class="branch-0 cbranch-no" title="branch not covered" >: ' inactive'}</span>"
+            href="/"
+            @click=${() =&gt; (this.currentPath = '/')}
+          &gt;
             &lt;img src="/src/_assets/icons/employee.svg" alt="employee logo" /&gt;
             ${t('employees')}
           &lt;/a&gt;
-          &lt;a class="nav-link add" href="/edit/new"&gt;
+          &lt;a
+            class="nav-link${this.currentPath.includes('/edit')
+<span class="branch-0 cbranch-no" title="branch not covered" >              ? ''</span>
+              : ' inactive'}"
+            href="/edit/new"
+            @click=${() =&gt; (this.currentPath = '/edit')}
+          &gt;
             &lt;img src="/src/_assets/icons/plus.svg" alt="plus logo" /&gt;
             ${t('addNew')}
           &lt;/a&gt;
@@ -322,7 +358,7 @@ customElements.define('main-navbar', MainNavbar);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-13T09:09:50.256Z
+                at 2025-07-13T10:15:56.025Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

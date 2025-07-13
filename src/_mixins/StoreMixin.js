@@ -28,7 +28,7 @@ export const StoreMixin = (Base) =>
       }
     }
 
-    _onStoreUpdate(data) {
+    _onStoreUpdate() {
       this.requestUpdate();
     }
 

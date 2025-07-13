@@ -17,6 +17,8 @@ export class EmployeeList extends StoreMixin(BaseComponent) {
     employees: {type: Array},
     confirmDialogOpen: {type: Boolean},
     selectedEmployee: {type: Object},
+    searchQuery: {type: String},
+    filteredEmployees: {type: Array},
   };
 
   constructor() {
@@ -26,15 +28,19 @@ export class EmployeeList extends StoreMixin(BaseComponent) {
     this.store = employeeStore;
     this.confirmDialogOpen = false;
     this.selectedEmployee = null;
+    this.searchQuery = '';
+    this.filteredEmployees = [];
   }
 
   connectedCallback() {
     super.connectedCallback();
     this.employees = this.getEmployees();
+    this.filteredEmployees = this.employees;
   }
 
   _onStoreUpdate(data) {
     this.employees = data;
+    this._filterEmployees();
     this.requestUpdate();
   }
 
@@ -53,6 +59,19 @@ export class EmployeeList extends StoreMixin(BaseComponent) {
   _onDialogCancel() {
     this.confirmDialogOpen = false;
     this.selectedEmployee = null;
+  }
+
+  _onSearchInput(e) {
+    this.searchQuery = e.target.value;
+    this._filterEmployees();
+  }
+
+  _filterEmployees() {
+    if (!this.searchQuery.trim()) {
+      this.filteredEmployees = this.employees;
+    } else {
+      this.filteredEmployees = this.searchEmployees(this.searchQuery);
+    }
   }
 
   render() {
@@ -98,15 +117,32 @@ export class EmployeeList extends StoreMixin(BaseComponent) {
             />
           </div>
         </div>
-        ${this.isListView
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="${t('searchEmployees')}"
+            .value=${this.searchQuery}
+            @input=${this._onSearchInput}
+            class="search-input"
+          />
+        </div>
+        ${this.filteredEmployees.length === 0 && this.searchQuery.trim()
+          ? html`<div class="no-search-results">
+              <p>${t('noSearchResults')}</p>
+            </div>`
+          : this.isListView
           ? html`<list-app
-              .rowData=${this.employees}
-              .headers=${getObjectKeys(this.employees[0])}
+              .rowData=${this.filteredEmployees}
+              .headers=${this.filteredEmployees.length > 0
+                ? getObjectKeys(this.filteredEmployees[0])
+                : []}
               @delete-request=${this._onDeleteRequest}
             ></list-app>`
           : html`<grid-app
-              .rowData=${this.employees}
-              .headers=${getObjectKeys(this.employees[0])}
+              .rowData=${this.filteredEmployees}
+              .headers=${this.filteredEmployees.length > 0
+                ? getObjectKeys(this.filteredEmployees[0])
+                : []}
               @delete-request=${this._onDeleteRequest}
             ></grid-app>`}
         <confirm-dialog
