@@ -12,15 +12,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Clear cache
+        run: |
+          npm cache clean --force
+          rm -rf node_modules
+          rm -f package-lock.json
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: false
 
       - name: Install dependencies
         run: |
-          npm install --no-package-lock
+          npm install
           ls -la
           cat package.json
 
